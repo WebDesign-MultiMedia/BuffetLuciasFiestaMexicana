@@ -1,44 +1,49 @@
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+/* ==========================================================================
+   Catering Menu page — mobile-first responsive stylesheet
+   Base rules target small phones with no media query. Each
+   @media (min-width: ...) block only adds progressive enhancements —
+   nothing is ever hidden on larger screens.
+   ========================================================================== */
 
-    *,
-    *::before,
-    *::after{
-        padding: 0;
-        margin: 0;
-        box-sizing: border-box;
-        
-    }
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
 
-    @keyframes move {
-        100% {
-            transform: translate3d(0, 0, 1px) rotate(360deg);
-        }
+body {
+    background: #03300e;
+}
+
+@keyframes move {
+    100% {
+        transform: translate3d(0, 0, 1px) rotate(360deg);
     }
-    
-    .background {
-        position: fixed;
-        width: 100vw;
-        height: 100vh;
-        top: 0;
-        left: 0;
-        background: #03300e;
-        overflow: hidden;
-    }
-    
-    .background span {
-        width: 1vmin;
-        height: 1vmin;
-        border-radius: 1vmin;
-        backface-visibility: hidden;
-        position: absolute;
-        animation: move;
-        animation-duration: 37;
-        animation-timing-function: linear;
-        animation-iteration-count: infinite;
-    }
-    
-    
+}
+
+.background {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #03300e;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.background span {
+    width: 1vmin;
+    height: 1vmin;
+    border-radius: 1vmin;
+    backface-visibility: hidden;
+    position: absolute;
+    animation-name: move;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
     .background span:nth-child(0) {
         color: #ffffff;
         top: 12%;
@@ -185,231 +190,260 @@
     }
     
 
+/* --------------------------------------------------------------------
+   Welcome popup (shown/hidden via script.js)
+   -------------------------------------------------------------------- */
+.popup {
+    background-color: rgba(255, 255, 255, 0.903);
+    width: min(90vw, 380px);
+    padding: 1.5rem 2rem;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    border-radius: 8px;
+    font-family: 'Courier New', Courier, monospace;
+    z-index: 20;
+    display: none;
+}
 
-                /* POP UP ALERT*/
-    
-   
-        
-        .popup{
-            background-color: rgba(255, 255, 255, 0.903);
-            width: 329px;
-            padding: 30px 50px;
-            position: fixed;
-            transform: translate(-50%, -50%);
-            left: 50%;
-            top: 50%;
-            border-radius: 8px;
-            font-family:'Courier New', Courier, monospace;
-            z-index: 9;
-            display: none;
-        }
+.popup button {
+    display: block;
+    margin: 0 0 0 auto;
+    background-color: transparent;
+    font-size: 1.75rem;
+    color: blue;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
 
-   
+.popup button:hover {
+    color: rgb(246, 0, 0);
+}
 
-        .popup button{
-            display: block;
-            margin: 0 0 0 auto;
-            background-color: transparent;
-            font-size: 30px;
-            color: blue;
-            border: none;
-            outline: none;
-            cursor: pointer;
-  
-        }
-
-        .popup button:hover{
-            color: rgb(246, 0, 0);
-        }
-
-        .popup h2{
-            text-align: center;
-        }
-
-        .popup p{
-            font-size: 14px;
-            text-align: center;
-            margin: 20px 0;
-            color: black;
-            padding-top: 1em;
-            font-size: 1.2em;
-        }
-
-
-        #red-words{
-            color: red;
-            font-weight: bold;
-        }
-
-        #white-words{
-            color: green;
-            font-weight: bold;
-
-        }
-
-
-
-
-
-
-                /*NAV */
-    .nav{
-        padding-top: 1.5em;
-        padding-right: 0em;
-        position: fixed;
-        right: 0;
-        z-index: 9;
-        
-
-        font-family: "Macondo", cursive;
-        font-weight: 400;
-        font-style: normal;
-    }
-    .nav-link{
-        color: white;
-        font-size: 4.5vw;
-    }
-
-    .active{
-        background-color: rgb(203, 30, 30);
-        border-radius: 10%;
-    }
-    .nav .active:hover{
-        color: white;
-        background-color: rgb(47, 47, 231);
-
-    }
-
-    .nav .hov:hover{
-        color: red;
-
-    }
-
-    .fix-img{
-        position: fixed;
-        width: 50vw;
-        display: flex;
-        justify-content: center;
-        top: 4em;
-        
-        
-    }
-
-
-                 /* HEAD */
-
-    h1{
+.popup h2 {
     text-align: center;
-    padding-top: 4em;
-    filter: drop-shadow(4px 10px 2px black);
-
-        font-family: "Sacramento", cursive;
-        font-weight: 400;
-        font-style: normal;
-        font-size: 3.5em;
-        color: white;
-      
-      
-    }
-
-                 /* CATERING MENU */
-    menu{
-        list-style-type: none;
-        position: relative;
-        padding-top: 2em;
-        padding-bottom: 3em;
-        text-align: center;
-
-    }
-    menu a{
-        color: rgb(252, 252, 252);
-        filter: drop-shadow(4px 7px 2px black);
-        text-decoration: none;
-
-        font-family: "Macondo", cursive;
-        font-weight: 400;
-        font-style: normal;
-
-        font-size: 1.5em;
-    }
-
-    menu li{
-        padding: 5px;
-    }
-
-    menu a:hover{
-        color: rgb(92, 144, 241);
-    }
-
-            /* FOOTER */
-   
-    footer{
-        display: inline-flex;
-        justify-content: center;
-        position: relative;
-        top: 50%;
-        left: 0%;
-        height: 10px;
-        padding-top: 2em;
-        padding-bottom: 5em;
-        background-color: rgba(128, 128, 128, 0.097);
-        width: 100%;
-        
-    }
-
-    .bi-facebook{
-        height: auto;
-        width: 15vw;
-        position: relative;
-        color: #1877F2;
-        right: 2em;
-    }
-    .bi-facebook:hover{
-        color: rgb(2, 80, 183);
-
-    }
-
-    .bi-tiktok{
-        height: auto;
-        width: 15vw; 
-       color: rgb(0, 0, 0);
-       filter: drop-shadow( 2px 1px 1px aqua);
-       position: relative;
-       left: 2em;
-    }
-
-    .bi-tiktok:hover{
-        color: #ff0050;
-
-    }
-
-
+    font-size: 1.3rem;
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-    body{
-        display: none;
+.popup p {
+    font-size: 0.95rem;
+    text-align: center;
+    margin: 1rem 0;
+    color: black;
+    padding-top: 0.5rem;
+}
+
+#red-words {
+    color: red;
+    font-weight: bold;
+}
+
+#white-words {
+    color: green;
+    font-weight: bold;
+}
+
+/* --------------------------------------------------------------------
+   Nav
+   -------------------------------------------------------------------- */
+.nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    gap: 0.15rem;
+    padding: 0.6rem 0.6rem 0.4rem;
+    font-family: "Macondo", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.nav-link {
+    display: inline-block;
+    color: white;
+    font-size: 0.95rem;
+    padding: 0.3em 0.6em;
+}
+
+.active {
+    background-color: rgb(203, 30, 30);
+    border-radius: 6px;
+}
+
+.nav .active:hover {
+    color: white;
+    background-color: rgb(47, 47, 231);
+}
+
+.nav .hov:hover {
+    color: red;
+}
+
+/* --------------------------------------------------------------------
+   Hero logo + heading
+   -------------------------------------------------------------------- */
+.fix-img {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: min(55vw, 220px);
+    height: auto;
+    margin: 3.5rem auto 0;
+}
+
+h1 {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 1rem 1rem 0;
+    filter: drop-shadow(3px 6px 2px black);
+    font-family: "Sacramento", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 2.25rem;
+    color: white;
+}
+
+/* --------------------------------------------------------------------
+   Catering menu list
+   -------------------------------------------------------------------- */
+menu {
+    position: relative;
+    z-index: 1;
+    list-style-type: none;
+    padding: 1.5rem 1rem 2rem;
+    text-align: center;
+}
+
+menu a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4em;
+    color: rgb(252, 252, 252);
+    filter: drop-shadow(3px 5px 2px black);
+    text-decoration: none;
+    font-family: "Macondo", cursive;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.05rem;
+}
+
+menu li {
+    padding: 6px;
+}
+
+menu a:hover {
+    color: rgb(92, 144, 241);
+}
+
+/* --------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------- */
+footer {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.5rem 1rem 2.5rem;
+    background-color: rgba(128, 128, 128, 0.097);
+    width: 100%;
+}
+
+.bi-facebook,
+.bi-tiktok {
+    width: 2rem;
+    height: auto;
+}
+
+.bi-facebook {
+    color: #1877F2;
+}
+
+.bi-facebook:hover {
+    color: rgb(2, 80, 183);
+}
+
+.bi-tiktok {
+    color: rgb(0, 0, 0);
+    filter: drop-shadow(2px 1px 1px aqua);
+}
+
+.bi-tiktok:hover {
+    color: #ff0050;
+}
+
+/* --------------------------------------------------------------------
+   Progressive enhancement for larger screens
+   -------------------------------------------------------------------- */
+@media only screen and (min-width: 480px) {
+    h1 {
+        font-size: 2.75rem;
+    }
+
+    menu a {
+        font-size: 1.15rem;
     }
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) {
-    body{
-        display: none;
+    .fix-img {
+        width: min(30vw, 260px);
+        margin-top: 4.5rem;
+    }
+
+    h1 {
+        font-size: 3.25rem;
+    }
+
+    menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.25rem 1.75rem;
+        max-width: 900px;
+        margin: 0 auto;
+        padding-top: 2rem;
+    }
+
+    menu li {
+        padding: 8px 0;
+    }
+
+    menu a {
+        font-size: 1.25rem;
+    }
+
+    .nav-link {
+        font-size: 1.1rem;
     }
 }
 
-/* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
-    body{
-        display: none;
+    .fix-img {
+        width: min(20vw, 220px);
+    }
+
+    menu {
+        max-width: 1100px;
+    }
+
+    .bi-facebook,
+    .bi-tiktok {
+        width: 2.25rem;
     }
 }
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
-    body{
-        display: none;
+    menu {
+        max-width: 1280px;
+    }
+
+    h1 {
+        font-size: 3.5rem;
     }
 }
